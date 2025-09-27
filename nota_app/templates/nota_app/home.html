@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Inicio</title>
+
+</head>
+
+<body>
+
+    <h1> Anotaciones </h1>
+
+    <a href="{% url 'crear_nota' %}"> ¡Agragar nota! </a>
+
+    <ul>
+        {% for nota in notas %}
+
+            <li>
+                <strong>{{ nota.titulo }}</strong>: {{ nota.descripcion }}
+                <a href="{% url 'eliminar_nota' nota.id %}"> Eliminar </a>
+            </li>
+
+        {% empty %}
+
+            <li>No hay notas todavia</li>
+
+        {% endfor %}
+
+
+    </ul>
+    
+</body>
+
+</html>
